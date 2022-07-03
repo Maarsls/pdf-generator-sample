@@ -5,7 +5,7 @@ const handlebars = require("handlebars");
 
 async function createPDF(data){
 
-	var templateHtml = fs.readFileSync(path.join(process.cwd(), 'template.html'), 'utf8');
+	var templateHtml = fs.readFileSync(path.join(process.cwd(), 'template-ticket.html'), 'utf8');
 	var template = handlebars.compile(templateHtml);
 	var html = template(data);
 
@@ -16,14 +16,14 @@ async function createPDF(data){
 
 	var options = {
 		width: '1230px',
-		headerTemplate: "<p></p>",
-		footerTemplate: "<p></p>",
-		displayHeaderFooter: false,
-		margin: {
-			top: "10px",
-			bottom: "30px"
-		},
-		printBackground: true,
+		// headerTemplate: "<p></p>",
+		// footerTemplate: "<p></p>",
+		// displayHeaderFooter: false,
+		// margin: {
+		// 	top: "10px",
+		// 	bottom: "30px"
+		// },
+		// printBackground: true,
 		path: pdfPath
 	}
 
@@ -43,13 +43,13 @@ async function createPDF(data){
 }
 
 const data = {
-	title: "A new Brazilian School",
-	date: "05/12/2018",
+	// title: "A new Brazilian School",
+	// date: "05/12/2018",
 	name: "Rodolfo Luis Marcos",
-	age: 28,
-	birthdate: "12/07/1990",
-	course: "Computer Science",
-	obs: "Graduated in 2014 by Federal University of Lavras, work with Full-Stack development and E-commerce."
+	// age: 28,
+	// birthdate: "12/07/1990",
+	// course: "Computer Science",
+	// obs: "Graduated in 2014 by Federal University of Lavras, work with Full-Stack development and E-commerce."
 }
 
 createPDF(data);
